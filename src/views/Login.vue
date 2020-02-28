@@ -1,8 +1,8 @@
 <template>
   <div>
-    <PhoneHeader title="登录注册">
+    <PhoneHeader title="用户登录">
       <template #left>
-        <p><span class="iconfont icon-left"></span></p>
+        <p><span class="iconfont icon-left"  @click="$router.go(-1)"></span></p>
       </template>
     </PhoneHeader>
 
@@ -11,7 +11,9 @@
         <input type="text" placeholder="请输入用户名" />
       </div>
       <div class="login-pass">
-        <input type="text" placeholder="请输入密码" />
+        <input :type="getType" placeholder="请输入密码" />
+        <span v-if="hidePass" @click="hidePass = false" class="iconfont icon-biyan"></span>
+        <span v-else @click="hidePass = true"  class="iconfont icon-yanjing"></span>
       </div>
     </div>
 
@@ -21,7 +23,9 @@
       </nut-button>
     </div>
 
-    <p class="should-know" @click="shouldKnow">注册须知</p>
+    <div class="footer-tips">
+      <p @click="toRegister">手机号注册</p>
+      </div>
   </div>
 </template>
 
@@ -31,19 +35,25 @@ export default {
   components: {
     PhoneHeader
   },
+  created() {
+    console.log(this.$route)
+  },
+   data() {
+      return {
+          hidePass: true
+      }
+  },
+  computed: {
+      getType() {
+          return this.hidePass ? 'password' : 'text';
+      }
+  },
   methods: {
-    shouldKnow() {
-      this.$dialog({
-        title: '注册说明',
-        content: '原账号为您本人所有，建议直接登录或找回密码。原账号内的订单资产可能丢失，可联系客服找回。',
-        closeBtn: true,
-        noFooter: true,
-        onCloseBtn(event) {
-          //右上角关闭按钮点击事件
-          alert('closeBtn');
-          // return false;  //阻止默认“关闭对话框”的行为
-        }
-      });
+    findPass() {
+
+    },
+    toRegister() {
+      this.$router.push({name: 'Register'})
     }
   }
 };
@@ -59,16 +69,24 @@ input::-webkit-input-placeholder {
   color: #aaa;
   font-size: 15px;
 }
-　 .login-user,
+.login-user,
 .login-pass {
-  margin: auto;
-  margin-bottom: 20px;
+  position: relative;
   height: 50px;
   width: 90%;
-  text-align: center;
   padding: 2px;
+  margin: auto;
+  margin-bottom: 20px;
+  text-align: center;
 
   border-bottom: 1px solid #eee;
+
+  .iconfont {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 20px;
+  }
 
   input {
     width: 100%;
@@ -94,12 +112,19 @@ input::-webkit-input-placeholder {
     opacity: 0.5;
   }
 }
-
-.should-know {
+.footer-tips {
+  display: flex;
+  justify-content: space-between;
   margin-top: 10px;
-  padding-right: 25px;
-  text-align: right;
+  padding: 0 25px;
   font-size: 13px;
   color: #333;
 }
+// .should-know {
+//   margin-top: 10px;
+//   padding-right: 25px;
+//   text-align: right;
+//   font-size: 13px;
+//   color: #333;
+// }
 </style>

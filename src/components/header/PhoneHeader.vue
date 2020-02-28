@@ -24,7 +24,7 @@ export default {
 .header {
   width: 100%;
   height: 44px;
-  border-bottom: 1px solid #eee;
+//   border-bottom: 1px solid #eee;
   background: #fff;
   position: relative;
 

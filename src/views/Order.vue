@@ -2,7 +2,7 @@
   <div class="about">
     <PhoneHeader title="购物车">
       <template #left>
-        <p>&lt;</p>
+        <p><span class="iconfont icon-left"></span></p>
       </template>
       <template #right>
         <p>右边</p>
@@ -57,12 +57,12 @@ export default {
     line-height: 120px;
     text-align: center;
     margin-top: 100px;
-  }
-}
 
-.iconfont {
-  font-size: 40px;
-  color: rgb(255, 100, 138);
+    .iconfont {
+      font-size: 40px;
+      color: rgb(255, 100, 138);
+    }
+  }
 }
 
 .to-login {
@@ -71,6 +71,7 @@ export default {
   justify-content: center;
   padding: 20px;
   background: #fff;
+  border-top: 1px solid #eee;
 
   > p {
     font-size: 14px;

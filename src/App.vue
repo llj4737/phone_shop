@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view/>
-    <NavFooter :navList="navList" />
+    <NavFooter v-show="$route.meta.showNav" :navList="navList" />
   </div>
 </template>
 

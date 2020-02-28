@@ -1,9 +1,9 @@
 <template>
   <section class="card">
-    <h3 class="card-title">
+    <h4 class="card-title">
       <span>{{ title }}</span>
       <span class="more" v-if="this.more" v-html="more"></span>
-    </h3>
+    </h4>
 
     <div class="card-content">
       <slot>
@@ -31,7 +31,7 @@ export default {
   width: 100%;
   background: #fff;
   // border: 1px solid red;
-  padding: 2px;
+  padding: 10px 2px;
 }
 
 .card-title {

@@ -1,23 +1,28 @@
 <template>
   <div>
-    <PhoneHeader title="登录注册">
+    <PhoneHeader title="用户注册">
       <template #left>
-        <p><span class="iconfont icon-left"></span></p>
+        <p><span class="iconfont icon-left" @click="$router.go(-1)"></span></p>
       </template>
     </PhoneHeader>
 
     <div class="login-wrapper">
+      <div class="login-phone">
+        <input type="text" placeholder="请输入绑定手机号" />
+      </div>
       <div class="login-user">
         <input type="text" placeholder="请输入用户名" />
       </div>
       <div class="login-pass">
-        <input type="text" placeholder="请输入密码" />
+        <input :type="getType" placeholder="请输入密码" />
+        <span v-if="hidePass" @click="hidePass = false" class="iconfont icon-biyan"></span>
+        <span v-else @click="hidePass = true"  class="iconfont icon-yanjing"></span>
       </div>
     </div>
 
     <div class="button-wrapper">
       <nut-button class="button" :class="{ blur: true }" block shape="circle">
-        登&nbsp;录
+        注&nbsp;册
       </nut-button>
     </div>
 
@@ -31,17 +36,28 @@ export default {
   components: {
     PhoneHeader
   },
+  data() {
+      return {
+          hidePass: true
+      }
+  },
+  computed: {
+      getType() {
+          return this.hidePass ? 'password' : 'text';
+      }
+  },
+  created() {
+    console.log(this.$route);
+  },
   methods: {
     shouldKnow() {
       this.$dialog({
         title: '注册说明',
-        content: '原账号为您本人所有，建议直接登录或找回密码。原账号内的订单资产可能丢失，可联系客服找回。',
+        content:
+          '原账号为您本人所有，建议直接登录或找回密码。原账号内的订单资产可能丢失，可联系客服找回。',
         closeBtn: true,
         noFooter: true,
         onCloseBtn(event) {
-          //右上角关闭按钮点击事件
-          alert('closeBtn');
-          // return false;  //阻止默认“关闭对话框”的行为
         }
       });
     }
@@ -59,17 +75,28 @@ input::-webkit-input-placeholder {
   color: #aaa;
   font-size: 15px;
 }
-　 .login-user,
+.login-phone,
+.login-user,
 .login-pass {
-  margin: auto;
-  margin-bottom: 20px;
+
+    position: relative;
   height: 50px;
   width: 90%;
-  text-align: center;
+
+  margin: auto;
+  margin-bottom: 20px;
   padding: 2px;
+  text-align: center;
 
   border-bottom: 1px solid #eee;
 
+
+  .iconfont {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      font-size: 20px;
+  }
   input {
     width: 100%;
     height: 100%;
