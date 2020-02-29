@@ -1,0 +1,8 @@
+/**
+ * 
+ * login getters
+ */
+
+export default {
+
+}

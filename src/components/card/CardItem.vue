@@ -17,11 +17,14 @@ export default {
 
 <style scoped lang='less'>
 .card-item {
-    margin-bottom: 15px;
-    text-align: center;
+    margin-bottom: 4px;
+    padding: 4px 4px 20px 4px;
+    border-radius: 2px;
+    background: #fff;
 
-    // img {
-    //     width: 100%;
-    // }
+    img {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
 </style>

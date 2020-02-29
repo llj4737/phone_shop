@@ -1,0 +1,8 @@
+/**
+ * 
+ * login state
+ */
+
+export default {
+
+}

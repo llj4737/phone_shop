@@ -1,0 +1,15 @@
+.single-line() {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.mut-line(@line: 3) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @line; //行数
+  -webkit-box-orient: vertical;
+}
+
+
+

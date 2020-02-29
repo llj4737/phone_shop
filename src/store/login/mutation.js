@@ -1,0 +1,8 @@
+/**
+ * 
+ * login mutations
+ */
+
+export default {
+
+}
