@@ -14,12 +14,15 @@
     </div>
 
     <div class="swiper-wrapper">
-      <swiper class="my-swiper" :options="swiperOption" ref="mySwiper">
+      <!-- <swiper class="my-swiper" :options="swiperOption" ref="mySwiper">
         <swiper-slide v-for="item in dataImgItem" :key="item.imgSrc">
           <img :src="item.imgSrc" alt="" />
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
-      </swiper>
+      </swiper> -->
+      <div class="my-swiper">
+        <Swiper :options="swiperOption" :data="dataImgItem" />
+      </div>
     </div>
 
     <div class="select-wrapper">
@@ -42,7 +45,7 @@
       <nut-row :gutter="2">
         <nut-col v-for="o in 30" :span="12" :key="o">
           <CardItem>
-            <div class="card-wrapper">
+            <div class="card-wrapper" @click="$router.push('/prodetail/1')">
               <img
                 v-lazy="
                   'https://img12.360buyimg.com/mobilecms/s372x372_jfs/t1/92327/32/13096/209738/5e539c9eE2b1ac601/e8ec8ad44bd787ae.jpg!q70.dpg.webp'
@@ -64,15 +67,15 @@
 <script>
 import CardItem from '@/components/card/CardItem.vue';
 
-import 'swiper/dist/css/swiper.css';
-import { swiper, swiperSlide } from 'vue-awesome-swiper';
+// import 'swiper/dist/css/swiper.css';
+// import { swiper, swiperSlide } from 'vue-awesome-swiper';
+import Swiper from '@/components/swiper/Swiper.vue';
 
 export default {
   name: 'Home',
   components: {
     CardItem,
-    swiper,
-    swiperSlide
+    Swiper
   },
   data() {
     return {
@@ -175,8 +178,10 @@ export default {
 
   .swiper-wrapper {
     padding: 6px 0 2px;
+    box-sizing: border-box;
     background: rgb(243, 89, 115);
     .my-swiper {
+      overflow: hidden;
       width: 95%;
       margin: auto;
       height: 149px;

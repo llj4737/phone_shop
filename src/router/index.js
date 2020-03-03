@@ -67,6 +67,15 @@ const routes = [{
         component: () =>
             import ('../views/Register.vue'),
 
+    },
+    {
+        path: '/prodetail/:pid',
+        name: 'ProductDetail',
+        meta: {
+            showNav: false
+        },
+        component: () =>
+            import ('../views/ProductDetail.vue')
     }
 ]
 

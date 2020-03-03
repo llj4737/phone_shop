@@ -5,6 +5,8 @@ import store from './store'
 
 import './less/reset.less'
 
+import 'swiper/dist/css/swiper.css';
+
 import {
     Dialog,
     Picker,
@@ -16,7 +18,9 @@ import {
     Lazyload,
     SearchBar,
     Swiper,
-    Infiniteloading
+    Infiniteloading,
+    Popup,
+    Stepper
 } from '@nutui/nutui';
 
 Dialog.install(Vue);
@@ -30,6 +34,8 @@ Lazyload.install(Vue);
 SearchBar.install(Vue);
 Swiper.install(Vue);
 Infiniteloading.install(Vue);
+Popup.install(Vue);
+Stepper.install(Vue);
 
 
 Vue.config.productionTip = false
