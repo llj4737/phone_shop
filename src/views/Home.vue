@@ -66,10 +66,12 @@
 
 <script>
 import CardItem from '@/components/card/CardItem.vue';
-
-// import 'swiper/dist/css/swiper.css';
-// import { swiper, swiperSlide } from 'vue-awesome-swiper';
 import Swiper from '@/components/swiper/Swiper.vue';
+
+
+
+// import {login} from '@/ajax';
+// console.log(login)
 
 export default {
   name: 'Home',
@@ -126,6 +128,9 @@ export default {
             //     this.isLoading = false;
             // }, 100);
         }
+  },
+  mounted() {
+    console.log(this.$store)
   }
 };
 </script>
